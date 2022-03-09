@@ -6,7 +6,7 @@
 package control;
 
 import dao.DAO;
-import enity.Product;
+import enity.*;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
@@ -28,8 +28,10 @@ public class CategoryControl extends HttpServlet {
         
         DAO dao=new DAO();
         List<Product> list= dao.getProductById(categoryID);
+        Category cate=dao.getCategoryByID(categoryID);
         
         request.setAttribute("listP", list);
+        request.setAttribute("cate", cate);
         request.getRequestDispatcher("category.jsp").forward(request, response);
         
         System.out.println(list);

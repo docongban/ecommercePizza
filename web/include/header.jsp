@@ -23,7 +23,7 @@
             <div class="grid header-container">
                 <!-- Start header with logo -->
                 <div class="header-with-logo">
-                    <a href="/" class="header-logo-link">
+                    <a href="./" class="header-logo-link">
                         <div class="header-logo"></div>
                     </a>
 

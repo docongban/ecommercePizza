@@ -13,7 +13,7 @@
         <div class="container">
             <div class="grid fix-wide">
                 <div class="container_header">
-                    <span class="container_header-text">Thực đơn</span>
+                    <span class="container_header-text">${cate.name}</span>
                 </div>
             </div>
 

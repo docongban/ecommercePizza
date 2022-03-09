@@ -40,6 +40,23 @@ public class DAO {
         return list;
     }
     
+    public Category getCategoryByID(String id){
+        String query= "select * from category where id = ?";
+        
+        try {
+            conn = new DBConnection().getDBConnection();
+            ps = conn.prepareStatement(query);
+            ps.setString(1, id);
+            
+            rs = ps.executeQuery();
+            while(rs.next()){
+                return(new Category(rs.getInt(1), rs.getString(2), rs.getDate(3), rs.getDate(4)));
+            }
+        } catch (Exception e) {
+        }
+        return null;
+    }
+    
     public List<Product> getAllProduct(){
         List<Product> list=new ArrayList<>();
         
@@ -95,6 +112,8 @@ public class DAO {
     public static void main(String[] args) {
         DAO dao=new DAO();
         List<Product> listC= dao.getProductById("3");
+        System.out.println(dao.getCategoryByID("2").getName());
+        
         for(Product c:listC){
             System.out.println(c);
         }
