@@ -44,6 +44,11 @@ public class SignUpControl extends HttpServlet {
         
         //check password is the same password confirm
         if(!pass.equals(passConfirm)){
+            request.setAttribute("fullname", fullname);
+            request.setAttribute("email", email);
+            request.setAttribute("address", address);
+            request.setAttribute("phone", phone);
+            request.setAttribute("passConfirm", "Nhập lại mật khẩu không khớp");
             request.getRequestDispatcher("signup.jsp").forward(request, response);
         }else{
             DAO dao=new DAO();
@@ -53,6 +58,11 @@ public class SignUpControl extends HttpServlet {
                 request.getRequestDispatcher("index.jsp").forward(request, response);
             }else{
                 //if account exist return signup page
+                request.setAttribute("fullname", fullname);
+                request.setAttribute("email", email);
+                request.setAttribute("address", address);
+                request.setAttribute("phone", phone);
+                request.setAttribute("phoneMatch", "Số điện thoại này đã được đăng ký vui lòng xử dụng số khác");
                 request.getRequestDispatcher("signup.jsp").forward(request, response);
             }
         }

@@ -13,6 +13,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -44,6 +45,10 @@ public class LoginControl extends HttpServlet {
             request.setAttribute("phoneuser", phone);
             request.getRequestDispatcher("signin.jsp").forward(request, response);
         }else{
+            HttpSession session = request.getSession();
+            session.setAttribute("acc",acc);
+            //set time session(s)
+            session.setMaxInactiveInterval(30);
             request.getRequestDispatcher("index.jsp").forward(request, response);
         }
         

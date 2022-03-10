@@ -28,67 +28,96 @@
                         <div class="header-logo"></div>
                     </a>
 
-                    <div class="header-delivery-with-serach">
-                        <div class="header-delivery">
-                            <div class="header-delivery_item active">
-                                <i class="fas fa-shipping-fast header-delivery_item-logo"></i>
-                                <span class="header-delivery_item-text">Đặt giao hàng</span>
+                    <c:if test="${sessionScope.acc.isAdmin == 1 || sessionScope.acc.isSell == 1 }">
+                        <ul class="manager__page">
+                            <li class="manager__page--item">
+                                <a href="" class="manager__page--item-link">Quản lý sản phẩm</a>
+                            </li>
+                            <li class="manager__page--item">
+                                <a href="" class="manager__page--item-link">Quản lý Account</a>
+                            </li>
+                            <li class="manager__page--item">
+                                <a href="" class="manager__page--item-link">Doanh số</a>
+                            </li>
+                        </ul>
+                    </c:if>
+                    
+                    <c:if test="${sessionScope.acc ==null || (sessionScope.acc.isAdmin == 0 && sessionScope.acc.isSell == 0)}">
+                        <div class="header-delivery-with-serach">
+                            <div class="header-delivery">
+                                <div class="header-delivery_item active">
+                                    <i class="fas fa-shipping-fast header-delivery_item-logo"></i>
+                                    <span class="header-delivery_item-text">Đặt giao hàng</span>
+                                </div>
+                                <div class="header-delivery_item">
+                                    <i class="fas fa-store-alt header-delivery_item-logo"></i>
+                                    <span class="header-delivery_item-text">Đặt đến lấy</span>
+                                </div>
                             </div>
-                            <div class="header-delivery_item">
-                                <i class="fas fa-store-alt header-delivery_item-logo"></i>
-                                <span class="header-delivery_item-text">Đặt đến lấy</span>
+
+                            <div class="header-search block">
+                                <i class="fas fa-map-marker-alt header-search-map"></i>
+                                <input class="header-search_title" placeholder="Nhập địa chỉ của bạn"></input>
+                            </div>
+
+                            <div class="header-search">
+                                <i class="fas fa-store header-search-map"></i>
+                                <input class="header-search_title" placeholder="Nhập cửa hàng"></input>
+
+
+                                <div class="header-search_store">
+                                    <ul class="header-search_store-item">
+                                        <li class="header-search_store-list">The Pizza Company Cầu Giấy</li>
+                                        <li class="header-search_store-list">The Pizza Company Times City</li>
+                                        <li class="header-search_store-list">The Pizza Company Đoàn Trần Nghiệp</li>
+                                        <li class="header-search_store-list">The Pizza Company Xuân Diệu</li>
+                                        <li class="header-search_store-list">The Pizza Company Vincom Bắc Từ Liêm</li>
+                                        <li class="header-search_store-list">The Pizza Company Vincom Royal City</li>
+                                        <li class="header-search_store-list">The Pizza Company Aeon Mall Long Biên</li>
+                                        <li class="header-search_store-list">The Pizza Company Aeon Mall Hà Đông</li>
+                                        <li class="header-search_store-list">The Pizza Company Linh Đàm</li>
+                                        <li class="header-search_store-list">The Pizza Company Trần Duy Hưng</li>
+                                        <li class="header-search_store-list">The Pizza Company Song Hành</li>
+                                        <li class="header-search_store-list">The Pizza Company Nguyễn Thị Minh Khai</li>
+                                        <li class="header-search_store-list">The Pizza Company 333 Lê Văn Sỹ</li>
+                                        <li class="header-search_store-list">The Pizza Company Bà Hom</li>
+                                        <li class="header-search_store-list">The Pizza Company Crescent Mall</li>
+                                        <li class="header-search_store-list">The Pizza Company Phạm Hùng</li>
+                                        <li class="header-search_store-list">The Pizza Company Hoàng Hoa Thám</li>
+                                        <li class="header-search_store-list">The Pizza Company Thống Nhất</li>
+                                        <li class="header-search_store-list">The Pizza Company AEON Mall Tân Phú</li>
+                                        <li class="header-search_store-list">The Pizza Company Vincom Biên Hòa</li>
+                                        <li class="header-search_store-list">The Pizza Company Pegasus</li>
+                                        <li class="header-search_store-list">The Pizza Company Sense City Bến Tre</li>
+                                        <li class="header-search_store-list">The Pizza Company Vincom Buôn Ma Thuột</li>
+                                    </ul>
+                                </div>
                             </div>
                         </div>
-
-                        <div class="header-search block">
-                            <i class="fas fa-map-marker-alt header-search-map"></i>
-                            <input class="header-search_title" placeholder="Nhập địa chỉ của bạn"></input>
-                        </div>
-
-                        <div class="header-search">
-                            <i class="fas fa-store header-search-map"></i>
-                            <input class="header-search_title" placeholder="Nhập cửa hàng"></input>
-
-
-                            <div class="header-search_store">
-                                <ul class="header-search_store-item">
-                                    <li class="header-search_store-list">The Pizza Company Cầu Giấy</li>
-                                    <li class="header-search_store-list">The Pizza Company Times City</li>
-                                    <li class="header-search_store-list">The Pizza Company Đoàn Trần Nghiệp</li>
-                                    <li class="header-search_store-list">The Pizza Company Xuân Diệu</li>
-                                    <li class="header-search_store-list">The Pizza Company Vincom Bắc Từ Liêm</li>
-                                    <li class="header-search_store-list">The Pizza Company Vincom Royal City</li>
-                                    <li class="header-search_store-list">The Pizza Company Aeon Mall Long Biên</li>
-                                    <li class="header-search_store-list">The Pizza Company Aeon Mall Hà Đông</li>
-                                    <li class="header-search_store-list">The Pizza Company Linh Đàm</li>
-                                    <li class="header-search_store-list">The Pizza Company Trần Duy Hưng</li>
-                                    <li class="header-search_store-list">The Pizza Company Song Hành</li>
-                                    <li class="header-search_store-list">The Pizza Company Nguyễn Thị Minh Khai</li>
-                                    <li class="header-search_store-list">The Pizza Company 333 Lê Văn Sỹ</li>
-                                    <li class="header-search_store-list">The Pizza Company Bà Hom</li>
-                                    <li class="header-search_store-list">The Pizza Company Crescent Mall</li>
-                                    <li class="header-search_store-list">The Pizza Company Phạm Hùng</li>
-                                    <li class="header-search_store-list">The Pizza Company Hoàng Hoa Thám</li>
-                                    <li class="header-search_store-list">The Pizza Company Thống Nhất</li>
-                                    <li class="header-search_store-list">The Pizza Company AEON Mall Tân Phú</li>
-                                    <li class="header-search_store-list">The Pizza Company Vincom Biên Hòa</li>
-                                    <li class="header-search_store-list">The Pizza Company Pegasus</li>
-                                    <li class="header-search_store-list">The Pizza Company Sense City Bến Tre</li>
-                                    <li class="header-search_store-list">The Pizza Company Vincom Buôn Ma Thuột</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
+                    </c:if>
 
                     <div class="header-account">
-                        <div class="header-account_login">
-                            <i class="far fa-user header-account_login-icon"></i>
-                            <a href="signin.jsp" class="header-account-text">Đăng nhập</a>
-                        </div>
-                        <span>/</span>
-                        <div class="header-account_register">
-                            <a href="signup.jsp" class="header-account-text">Tạo tài khoản</a>
-                        </div>
+                        <c:if test="${sessionScope.acc ==null}">
+                            <div class="header-account_login">
+                                <i class="far fa-user header-account_login-icon"></i>
+                                <a href="signin.jsp" class="header-account-text">Đăng nhập</a>
+                            </div>
+                            <span>/</span>
+                            <div class="header-account_register">
+                                <a href="signup.jsp" class="header-account-text">Tạo tài khoản</a>
+                            </div>
+                        </c:if>
+                        
+                        <c:if test="${sessionScope.acc !=null}">
+                            <div class="header-account_login">
+                                <i class="far fa-user header-account_login-icon"></i>
+                                <a href="#" class="header-account-text">${sessionScope.acc.fullname}</a>
+                            </div>
+                            <span>/</span>
+                            <div class="header-account_register">
+                                <a href="logout" class="header-account-text">Đăng xuất</a>
+                            </div>
+                        </c:if>
                     </div>
                 </div>
                 <!-- End header with logo -->

@@ -3,11 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/E:/Code/JavaWeb/ecommerce/src/java/control/SignUpControl.java</file>
             <file>file:/E:/Code/JavaWeb/ecommerce/src/java/dao/DAO.java</file>
-            <file>file:/E:/Code/JavaWeb/ecommerce/web/index.jsp</file>
-            <file>file:/E:/Code/JavaWeb/ecommerce/web/include/header.jsp</file>
-            <file>file:/E:/Code/JavaWeb/ecommerce/web/category.jsp</file>
-            <file>file:/E:/Code/JavaWeb/ecommerce/src/java/control/CategoryControl.java</file>
+            <file>file:/E:/Code/JavaWeb/ecommerce/web/signup.jsp</file>
+            <file>file:/E:/Code/JavaWeb/ecommerce/src/java/control/SearchControl.java</file>
         </group>
     </open-files>
 </project-private>

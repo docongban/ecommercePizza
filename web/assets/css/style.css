@@ -159,6 +159,21 @@ html {
     text-decoration: underline;
 }
 
+.manager__page{
+    display: flex;
+    align-items: center;
+    list-style: none;
+}
+.manager__page--item-link{
+    font-size: 1.4rem;
+    text-decoration: none;
+    padding: 8px 15px;
+    background-color: var(--primary-color);
+    color: #fff;
+    border-radius: 25px;
+    margin-right: 15px;
+}
+
 /* Navbar */
 .navbar{
     background-color:var(--primary-color);

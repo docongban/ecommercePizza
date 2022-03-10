@@ -16,6 +16,10 @@
         <servlet-name>SignUpControl</servlet-name>
         <servlet-class>control.SignUpControl</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>LogOutControl</servlet-name>
+        <servlet-class>control.LogOutControl</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>CategoryControl</servlet-name>
         <url-pattern>/category</url-pattern>
@@ -31,6 +35,10 @@
     <servlet-mapping>
         <servlet-name>SignUpControl</servlet-name>
         <url-pattern>/signup</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>LogOutControl</servlet-name>
+        <url-pattern>/logout</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

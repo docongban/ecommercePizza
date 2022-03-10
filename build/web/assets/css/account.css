@@ -109,3 +109,10 @@ input::placeholder{
     color: #00addf;
     font-size: 14px;
 }
+
+.warning{
+    font-size: 13px;
+    color: #ff4f60;
+    font-weight: 700;
+    line-height: 23px;
+}

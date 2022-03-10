@@ -14,25 +14,26 @@
 
                 <div class="form-group">
                     <label for="fullname" class="form-label">Họ và tên</label>
-                    <input id="fullname" name="fullname" rules="required" type="text" placeholder="VD: Đỗ Công Ban" class="form-control">
+                    <input id="fullname" name="fullname" value="${fullname}" rules="required" type="text" placeholder="VD: Đỗ Công Ban" class="form-control">
                     <span class="form-message"></span>
                 </div>
 
                 <div class="form-group">
                     <label for="email" class="form-label">Email</label>
-                    <input id="email" name="email" rules="required|email" type="text" placeholder="VD: emailname@gmail.com" class="form-control">
+                    <input id="email" name="email" value="${email}" rules="required|email" type="text" placeholder="VD: emailname@gmail.com" class="form-control">
                     <span class="form-message"></span>
                 </div>
 
                 <div class="form-group">
                     <label for="address" class="form-label">Địa Chỉ</label>
-                    <input id="address" name="address" rules="required" type="text" placeholder="Số nhà, ngách/ngõ, Đường, Phố, Quận" class="form-control">
+                    <input id="address" name="address" value="${address}" rules="required" type="text" placeholder="Số nhà, ngách/ngõ, Đường, Phố, Quận" class="form-control">
                     <span class="form-message"></span>
                 </div>
 
                 <div class="form-group">
                     <label for="phone" class="form-label">Số điện thoại</label>
-                    <input id="phone" name="phone" rules="required" type="text" placeholder="" class="form-control">
+                    <div class="warning">${phoneMatch}</div>
+                    <input id="phone" name="phone" value="${phone}" rules="required" type="text" placeholder="" class="form-control">
                     <span class="form-message"></span>
                 </div>
 
@@ -44,6 +45,7 @@
 
                 <div class="form-group">
                     <label for="password_confirm" class="form-label">Nhập lại mật khẩu</label>
+                    <div class="warning">${passConfirm}</div>
                     <input id="password_confirm" name="password_confirm" type="password" placeholder="" class="form-control">
                     <span class="form-message"></span>
                 </div>

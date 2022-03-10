@@ -10,6 +10,8 @@ import enity.*;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.*;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Date;
@@ -198,15 +200,14 @@ public class DAO {
             ps = conn.prepareStatement(query);
             
             Date d=new Date();
-                java.sql.Date sqlDate = new java.sql.Date(d.getTime());
-            
+
             ps.setString(1, fullname);
             ps.setString(2, email);
             ps.setString(3, address);
             ps.setString(4, phone);
             ps.setString(5, pass);
-            ps.setDate(6, sqlDate);
-            ps.setDate(7, sqlDate);
+            ps.setTimestamp(6, new java.sql.Timestamp(d.getTime()));
+            ps.setTimestamp(7, new java.sql.Timestamp(d.getTime()));
             
             ps.executeUpdate();
         } catch (Exception e) {
