@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="./assets/css/style.css">
     <link rel="stylesheet" href="./assets/css/gird.css">
     <link rel="stylesheet" href="./assets/css/responsive.css">
+    <link rel="stylesheet" href="./assets/css/account.css">
     <link rel="stylesheet" href="./assets/css/reset.css">
     <link rel="stylesheet" href="./assets/fonts/fontawesome-free-5.15.4-web/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap" rel="stylesheet">
@@ -82,11 +83,11 @@
                     <div class="header-account">
                         <div class="header-account_login">
                             <i class="far fa-user header-account_login-icon"></i>
-                            <span class="header-account-text">Đăng nhập</span>
+                            <a href="signin.jsp" class="header-account-text">Đăng nhập</a>
                         </div>
                         <span>/</span>
                         <div class="header-account_register">
-                            <span class="header-account-text">Tạo tài khoản</span>
+                            <a href="signup.jsp" class="header-account-text">Tạo tài khoản</a>
                         </div>
                     </div>
                 </div>
@@ -119,7 +120,7 @@
 
                         <div class="search_box">
                             <form action="search" method="post">
-                                <input type="text" name="txtSearch" id="" class="search_box_input" placeholder="Tìm sản phẩm">
+                                <input type="text" name="txtSearch" value="${txtSearch}" id="" class="search_box_input" placeholder="Tìm sản phẩm">
                                 <button type="submit" class="search_box_btn">
                                     <i class="fas fa-search navbar_search-icon"></i>
                                 </button>

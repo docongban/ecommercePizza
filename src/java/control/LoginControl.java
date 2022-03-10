@@ -6,10 +6,9 @@
 package control;
 
 import dao.DAO;
-import enity.Product;
+import enity.Account;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -19,7 +18,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author docon
  */
-public class SearchControl extends HttpServlet {
+public class LoginControl extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -34,17 +33,20 @@ public class SearchControl extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         
-        //Xu li search tieng viet
-        request.setCharacterEncoding("UTF-8");
-        
-        String txtSearch = request.getParameter("txtSearch");
+        String phone = request.getParameter("phone");
+        String pass = request.getParameter("password");
         
         DAO dao=new DAO();
-        List<Product> list = dao.getProductBySearch(txtSearch);
+        Account acc= dao.login(phone, pass);
         
-        request.setAttribute("listP", list);
-        request.setAttribute("txtSearch", txtSearch);
-        request.getRequestDispatcher("category.jsp").forward(request, response);
+        if(acc==null){
+            request.setAttribute("warning", "Đăng nhập không thành công. Vui lòng kiểm tra và thử lại");
+            request.setAttribute("phoneuser", phone);
+            request.getRequestDispatcher("signin.jsp").forward(request, response);
+        }else{
+            request.getRequestDispatcher("index.jsp").forward(request, response);
+        }
+        
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

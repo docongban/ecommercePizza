@@ -6,10 +6,9 @@
 package control;
 
 import dao.DAO;
-import enity.Product;
+import enity.Account;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -19,7 +18,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author docon
  */
-public class SearchControl extends HttpServlet {
+public class SignUpControl extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -34,17 +33,30 @@ public class SearchControl extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         
-        //Xu li search tieng viet
         request.setCharacterEncoding("UTF-8");
         
-        String txtSearch = request.getParameter("txtSearch");
+        String fullname = request.getParameter("fullname");
+        String email = request.getParameter("email");
+        String address = request.getParameter("address");
+        String phone = request.getParameter("phone");
+        String pass = request.getParameter("password");
+        String passConfirm = request.getParameter("password_confirm");
         
-        DAO dao=new DAO();
-        List<Product> list = dao.getProductBySearch(txtSearch);
+        //check password is the same password confirm
+        if(!pass.equals(passConfirm)){
+            request.getRequestDispatcher("signup.jsp").forward(request, response);
+        }else{
+            DAO dao=new DAO();
+            Account acc=dao.checkAccountExist(phone);
+            if(acc == null){
+                dao.signup(fullname, email, address, phone, pass);
+                request.getRequestDispatcher("index.jsp").forward(request, response);
+            }else{
+                //if account exist return signup page
+                request.getRequestDispatcher("signup.jsp").forward(request, response);
+            }
+        }
         
-        request.setAttribute("listP", list);
-        request.setAttribute("txtSearch", txtSearch);
-        request.getRequestDispatcher("category.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

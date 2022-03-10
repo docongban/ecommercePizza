@@ -8,6 +8,14 @@
         <servlet-name>SearchControl</servlet-name>
         <servlet-class>control.SearchControl</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>LoginControl</servlet-name>
+        <servlet-class>control.LoginControl</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>SignUpControl</servlet-name>
+        <servlet-class>control.SignUpControl</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>CategoryControl</servlet-name>
         <url-pattern>/category</url-pattern>
@@ -15,6 +23,14 @@
     <servlet-mapping>
         <servlet-name>SearchControl</servlet-name>
         <url-pattern>/search</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>LoginControl</servlet-name>
+        <url-pattern>/login</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SignUpControl</servlet-name>
+        <url-pattern>/signup</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
