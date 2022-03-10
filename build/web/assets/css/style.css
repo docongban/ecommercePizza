@@ -244,6 +244,7 @@ html {
 .navbar-with-search{
     display: flex;
     padding-right: 5px;
+    position: relative;
 }
 .navbar_search{
     font-size:1.7rem;
@@ -251,6 +252,45 @@ html {
     padding-right: 35px;
     padding-top: 6px;
 }
+
+.navbar_search > i{
+    cursor: pointer;
+}
+
+.search_box{
+    position: absolute;
+    top: 45px;
+    right: 130px;
+    display: none;
+}
+
+.search_box.active{
+    display: block;
+}
+
+.search_box_input{
+    border: 1px solid #00b041;
+    border-radius: 20px;
+    padding: 10px 20px;
+    width: 300px;
+    font-size: 14px;
+    position: relative;
+    outline: none;
+}
+
+.search_box_btn{
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: transparent;
+    border: none;
+    outline: none;
+    font-size: 14px;
+    color: #00b041;
+    cursor: pointer;
+}
+
 
 .navbar_cart{
     display: flex;

@@ -108,13 +108,40 @@ public class DAO {
         return list;
     }
     
+    public List<Product> getProductBySearch(String title){
+        List<Product> list=new ArrayList<>();
+        
+        String query= "select * from products where title like ?";
+        
+        try {
+            conn = new DBConnection().getDBConnection();
+            ps = conn.prepareStatement(query);
+            ps.setString(1, "%" + title + "%");
+            
+            rs = ps.executeQuery();
+            while(rs.next()){
+                list.add(new Product(rs.getInt(1), 
+                        rs.getString(2), 
+                        rs.getDouble(3), 
+                        rs.getString(4),
+                        rs.getString(5),
+                        rs.getInt(6),
+                        rs.getDate(7),
+                        rs.getDate(8)));
+            }
+        } catch (Exception e) {
+        }
+        return list;
+    }
+    
 //    test
     public static void main(String[] args) {
         DAO dao=new DAO();
         List<Product> listC= dao.getProductById("3");
-        System.out.println(dao.getCategoryByID("2").getName());
+//        System.out.println(dao.getCategoryByID("2").getName());
+        List<Product> list= dao.getProductBySearch("Xông Khói");
         
-        for(Product c:listC){
+        for(Product c:list){
             System.out.println(c);
         }
     }

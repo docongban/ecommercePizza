@@ -113,8 +113,17 @@
                     </div>
 
                     <div class="navbar-with-search">
-                        <div class="navbar_search">
-                            <i class="fas fa-search navbar_search-icon"></i>
+                        <div class="navbar_search" onclick="document.querySelector('.search_box').classList.toggle('active')">
+                            <i class="fas fa-search navbar_search-icon" ></i>
+                        </div>
+
+                        <div class="search_box">
+                            <form action="search" method="post">
+                                <input type="text" name="txtSearch" id="" class="search_box_input" placeholder="Tìm sản phẩm">
+                                <button type="submit" class="search_box_btn">
+                                    <i class="fas fa-search navbar_search-icon"></i>
+                                </button>
+                            </form>
                         </div>
 
                         <div class="navbar_cart">
