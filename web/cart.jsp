@@ -27,13 +27,24 @@ if (cart_list != null) {
 
 <!-- Start container -->
         <div class="container">
+            <%
+                if (cart_list == null || cart_list.size()<=0) { %>
+                <div class="grid fix-wide">
+                    <div class="nocart">
+                        <h2 class="nocart__title">Rất tiếc !!! Bạn không có sản phẩm ở đây.</h2>
+                        <p class="nocart__content">Chúng tôi sẽ giao hàng với hoá đơn trên <span>100,000 đ</span></p>
+                    </div>
+                </div>
+             <%}%>
+            
+            <%
+                if (cart_list != null && cart_list.size()>0) { %>
             <div class="grid fix-wide">
                 <div id="hai_san_pesto" class="product-decrip">
                     <span class="product-name">Sản phẩm</span>
                 </div>
                 <div class="row">
                     <%
-                        if (cart_list != null) {
                             for (Cart c : cartProduct) {
                     %>
                         <div class="col l-12">
@@ -57,7 +68,7 @@ if (cart_list != null) {
                             </div>
                         </div>
                      <%
-                        }}%>           
+                        }%>           
                 </div>
                 <div class="product-pay">
                     <span class="product-pay__title">Tổng tiền:</span>
@@ -74,6 +85,8 @@ if (cart_list != null) {
                     </a>
                 </div>
             </div>
+                <%
+                        }%>
         </div>
         <!-- End container -->
 

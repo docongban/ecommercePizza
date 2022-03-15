@@ -75,6 +75,7 @@ public class AddToCartControl extends HttpServlet {
             if (cart_list == null) {
                 cartList.add(cart);
                 session.setAttribute("cart-list", cartList);
+                session.setMaxInactiveInterval(60*60*24);
                 response.sendRedirect("./");
             } else {
                 cartList = cart_list;

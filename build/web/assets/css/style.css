@@ -356,14 +356,17 @@ html {
         transform: scale(1);
     }
 }
-.navbar_cart:hover .navbar_cart-list{
+.navbar_cart:hover .navbar_cart-list,
+.navbar_cart:hover.navbar_cart::before{
     display: block;
 }
 .navbar_cart-list{
     position: absolute;
     top: calc(100% + 6px);
     right: 0;
-    height: 175px;
+    min-height: 175px;
+    max-height: 280px;
+    overflow-y: auto;
     width: 430px;
     background-color:#fff;
     border-radius:3px;
@@ -372,23 +375,62 @@ html {
     display:none;
     z-index: 1;
 }
-.navbar_cart-list::before{
+.navbar_cart::before{
     content: "";
     position: absolute;
     right: 10px;
-    top: -20px;
+    top: 18px;
     border-width: 14px;
     border-style: solid;
     border-color: transparent transparent #fff transparent;
+    animation: 0.2s;
+    display: none;
 }
-.navbar_cart-list::after{
+.navbar_cart::after{
     content: "";
     position: absolute;
     right: 0;
-    top: -8px;
+    top: 30px;
     width: 150px;
     height: 10px;
 }
+
+.navbar_cart-item{
+    display: flex;
+    align-items: center;
+}
+.navbar_cart-item__img{
+    width: 80px;
+    height: auto;
+    margin-right: 10px;
+}
+.navbar_cart-item__title{
+    font-size: 1.6rem;
+    font-weight: 600;
+    width: 250px;
+    max-height:2rem;
+    overflow:hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+
+}
+.navbar_cart-item__price{
+    font-size: 1.6rem;
+    font-weight: bold;
+    color: var(--active-color);
+}
+.navbar_cart__btn{
+    text-decoration: none;
+    background-color: var(--primary-color);
+    color: #fff;
+    font-size: 1.6rem;
+    padding: 8px 15px;
+    border-radius: 10px;
+    float: right;
+    margin: 10px 10px 10px 0px;
+}
+
 .navbar_cart-list-title{
     font-size: 2rem;
     font-weight:700;
@@ -728,6 +770,29 @@ img{
     outline: none;
     color: rgba(17, 17, 17, 0.9);
     font-weight: 700;
+}
+
+.nocart{
+    margin-top: 150px;
+    margin-bottom: 150px;
+    text-align: center;
+}
+
+.nocart__title{
+    font-size: 3.6rem;
+    padding-bottom: 25px;
+    color: #000;
+    margin: 0 auto;
+    font-weight: bold;
+}
+
+.nocart__content{
+    font-size: 2.8rem;
+}
+
+.nocart__content > span{
+    font-weight: bold;
+    color: var(--active-color);
 }
 
 .product-pay{

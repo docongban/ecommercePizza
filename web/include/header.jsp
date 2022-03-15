@@ -1,17 +1,20 @@
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-
+<%@page import="java.text.DecimalFormat"%>
 <%@page import="dao.DAO"%>
 <%@page import="java.util.*"%>
 <%@page import="enity.Cart"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+
 <%
+DecimalFormat df = new DecimalFormat(",###");
+    
 ArrayList<Cart> cart_list = (ArrayList<Cart>) session.getAttribute("cart-list");
 List<Cart> cartProduct = null;
 if (cart_list != null) {
 	DAO dao = new DAO();
 	cartProduct = dao.getCartProducts(cart_list);
-//	double total = dao.getTotalCartPrice(cart_list);
-//	request.setAttribute("total", total);
+	double total = dao.getTotalCartPrice(cart_list);
+	request.setAttribute("total", total);
 	request.setAttribute("cart_list", cart_list);
 }
 %>
@@ -183,20 +186,39 @@ if (cart_list != null) {
                             </a>
                             <div class="navbar_cart-amount">
                                 <%
-                                if (cart_list == null) {%>
+                                if (cart_list == null || cart_list.size()<=0) {%>
                                     <span class="navbar_cart-count">0</span>
                                 <%}%>
                                 
                                 <%
-                                if (cart_list != null) {%>
+                                if (cart_list != null && cart_list.size()>0) {%>
                                     <span class="navbar_cart-count"><%=cart_list.size()%></span>
                                 <%}%>
                             </div>
-
+                            
+                            <%
+                                if (cart_list == null || cart_list.size()<=0) {%>
                             <div class="navbar_cart-list">
                                 <p class="navbar_cart-list-title">Rất tiếc!!! Bạn không có sản phẩm ở đây.</p>
                                 <p class="navbar_cart-list-decrip">Chúng tôi sẽ giao hàng với hoá đơn trên <span>100,000 đ</span></p>
                             </div>
+                            <%}%>
+                            
+                            <%
+                                if (cart_list != null && cart_list.size()>0) {
+                            %>
+                            <div class="navbar_cart-list" style="min-height: 125px">
+                                <%
+                                for (Cart c : cartProduct) {%>
+                                <div class="navbar_cart-item">
+                                    <img src="<%=c.getThumbnail()%>" alt="" class="navbar_cart-item__img">
+                                    <div class="navbar_cart-item__title"><%=c.getTitle()%></div>
+                                    <div class="navbar_cart-item__price"><%=df.format(c.getPrice())%>đ</div>
+                                </div>
+                                <%}%>
+                                <a href="cart.jsp" class="navbar_cart__btn">Xem chi tiết giỏ hàng</a>
+                            </div>
+                            <%}%>
                         </div>
                     </div>
                 </nav>
