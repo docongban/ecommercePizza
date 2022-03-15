@@ -68,7 +68,7 @@ if (cart_list != null) {
                         <i class="fas fa-arrow-left"></i>
                         <span class="product-btn__return-title">Tiếp tục mua hàng</span>
                     </a>
-                    <a href="#" class="product-btn__pay">
+                    <a href="check-out" class="product-btn__pay">
                         <span class="product-btn__pay-title">Thanh toán</span>
                         <i class="fas fa-arrow-right"></i>
                     </a>

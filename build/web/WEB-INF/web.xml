@@ -32,6 +32,10 @@
         <servlet-name>RemoveFormCartControl</servlet-name>
         <servlet-class>control.RemoveFormCartControl</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>CheckOutControl</servlet-name>
+        <servlet-class>control.CheckOutControl</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>CategoryControl</servlet-name>
         <url-pattern>/category</url-pattern>
@@ -63,6 +67,10 @@
     <servlet-mapping>
         <servlet-name>RemoveFormCartControl</servlet-name>
         <url-pattern>/remove-form-cart</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CheckOutControl</servlet-name>
+        <url-pattern>/check-out</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

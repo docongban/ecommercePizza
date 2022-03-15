@@ -46,9 +46,10 @@ public class LoginControl extends HttpServlet {
             request.getRequestDispatcher("signin.jsp").forward(request, response);
         }else{
             HttpSession session = request.getSession();
+            Account account = (Account) request.getSession().getAttribute("acc");
             session.setAttribute("acc",acc);
             //set time session(s)
-            session.setMaxInactiveInterval(30);
+            session.setMaxInactiveInterval(60*60*24);
             request.getRequestDispatcher("index.jsp").forward(request, response);
         }
         

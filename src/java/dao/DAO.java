@@ -270,6 +270,28 @@ public class DAO {
         return sum;
     }
     
+    public boolean insertOrder(Order order){
+        boolean result = false;
+        String query = "insert into orders (id_account,id_product,quantity,ordered_date) values(?,?,?,?)";
+        try {
+            conn = new DBConnection().getDBConnection();
+            ps = conn.prepareStatement(query);
+            
+            Date d=new Date();
+            
+            ps.setInt(1, order.getAccountId());
+            ps.setInt(2, order.getProductId());
+            ps.setInt(3, order.getQuantity());
+            ps.setTimestamp(4, new java.sql.Timestamp(d.getTime()));
+            
+            ps.executeUpdate();
+            result=true;
+        } catch (Exception e) {
+        }
+        
+        return result;
+    }
+    
 //    test
     public static void main(String[] args) {
         DAO dao=new DAO();
