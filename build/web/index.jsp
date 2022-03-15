@@ -23,7 +23,7 @@
                     <div class="row">
                         <c:forEach items="${a.allProduct}" var="o">
                             <div class="col l-3">
-                                <a href="#" class="product-item">
+                                <a href="add-to-cart?id=${o.id}" class="product-item">
                                     <div class="product-item-show">
                                         <div class="product-item__img" style="background-image: url('${o.thumbnail}');"></div>
                                         <div class="product-item__name">${o.title}</div>
@@ -32,12 +32,11 @@
                                     <div class="product-item__wrapper">
                                         <div class="product-item__wrapper-price">
                                             <span class="product-item__wrapper-price-text">Giá chỉ từ</span>
-                                            <span class="product-item__wrapper-price-number">${o.price}</span>
+                                            <span class="product-item__wrapper-price-number">${String.format("%.0f", o.price)}đ</span>
                                         </div>
                                         <div class="product-item__wrapper-button">
                                             <span class="product-item__wrapper-button-text">Mua ngay</span>
                                             <i class="fas fa-arrow-right product-item__wrapper-button-btn"></i>
-
                                         </div>
                                     </div>
                                 </a>

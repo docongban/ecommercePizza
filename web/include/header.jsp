@@ -1,5 +1,21 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+
+<%@page import="dao.DAO"%>
+<%@page import="java.util.*"%>
+<%@page import="enity.Cart"%>
+<%
+ArrayList<Cart> cart_list = (ArrayList<Cart>) session.getAttribute("cart-list");
+List<Cart> cartProduct = null;
+if (cart_list != null) {
+	DAO dao = new DAO();
+	cartProduct = dao.getCartProducts(cart_list);
+//	double total = dao.getTotalCartPrice(cart_list);
+//	request.setAttribute("total", total);
+	request.setAttribute("cart_list", cart_list);
+}
+%>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -28,19 +44,21 @@
                         <div class="header-logo"></div>
                     </a>
 
-                    <c:if test="${sessionScope.acc.isAdmin == 1 || sessionScope.acc.isSell == 1 }">
-                        <ul class="manager__page">
+                    <ul class="manager__page">
+                        <c:if test="${sessionScope.acc.isSell == 1 }">
                             <li class="manager__page--item">
-                                <a href="" class="manager__page--item-link">Quản lý sản phẩm</a>
+                                <a href="" class="manager__page--item-link">Quản lý sản phẩm & hóa đơn</a>
                             </li>
+                        </c:if>
+                        <c:if test="${sessionScope.acc.isAdmin == 1 }">
                             <li class="manager__page--item">
                                 <a href="" class="manager__page--item-link">Quản lý Account</a>
                             </li>
                             <li class="manager__page--item">
                                 <a href="" class="manager__page--item-link">Doanh số</a>
                             </li>
-                        </ul>
-                    </c:if>
+                        </c:if>
+                    </ul>
                     
                     <c:if test="${sessionScope.acc ==null || (sessionScope.acc.isAdmin == 0 && sessionScope.acc.isSell == 0)}">
                         <div class="header-delivery-with-serach">
@@ -157,14 +175,22 @@
                         </div>
 
                         <div class="navbar_cart">
-                            <a href="" class="navbar_cart-icon-link">
+                            <a href="cart.jsp" class="navbar_cart-icon-link">
                                 <i class="fas fa-shopping-cart navbar_cart-icon"></i>
                             </a>
-                            <a href="" class="navbar_cart-link">
+                            <a href="cart.jsp" class="navbar_cart-link">
                                 <span class="navbar_cart-text">Giỏ hàng</span>
                             </a>
                             <div class="navbar_cart-amount">
-                                <span class="navbar_cart-count">0</span>
+                                <%
+                                if (cart_list == null) {%>
+                                    <span class="navbar_cart-count">0</span>
+                                <%}%>
+                                
+                                <%
+                                if (cart_list != null) {%>
+                                    <span class="navbar_cart-count"><%=cart_list.size()%></span>
+                                <%}%>
                             </div>
 
                             <div class="navbar_cart-list">

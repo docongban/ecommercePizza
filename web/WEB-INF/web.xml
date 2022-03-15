@@ -20,6 +20,18 @@
         <servlet-name>LogOutControl</servlet-name>
         <servlet-class>control.LogOutControl</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>AddToCartControl</servlet-name>
+        <servlet-class>control.AddToCartControl</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>QuantityDecIncControl</servlet-name>
+        <servlet-class>control.QuantityDecIncControl</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>RemoveFormCartControl</servlet-name>
+        <servlet-class>control.RemoveFormCartControl</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>CategoryControl</servlet-name>
         <url-pattern>/category</url-pattern>
@@ -39,6 +51,18 @@
     <servlet-mapping>
         <servlet-name>LogOutControl</servlet-name>
         <url-pattern>/logout</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AddToCartControl</servlet-name>
+        <url-pattern>/add-to-cart</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>QuantityDecIncControl</servlet-name>
+        <url-pattern>/quantity-dec-inc</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>RemoveFormCartControl</servlet-name>
+        <url-pattern>/remove-form-cart</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

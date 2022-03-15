@@ -214,6 +214,61 @@ public class DAO {
         }
     }
     
+    public List<Cart> getCartProducts(ArrayList<Cart> cartList){
+        List<Cart> products = new ArrayList<Cart>();
+        
+        try {
+            if(cartList.size()>0){
+                for(Cart c: cartList){
+                    String query = "SELECT * FROM products where id = ?";
+                    conn = new DBConnection().getDBConnection();
+                    ps = conn.prepareStatement(query);
+                    ps.setInt(1, c.getId());
+                    
+                    rs = ps.executeQuery();
+                    while(rs.next()){
+                        Cart cart = new Cart();
+                        
+                        cart.setId(rs.getInt(1));
+                        cart.setTitle(rs.getString(2));
+                        cart.setPrice(rs.getDouble(3));
+                        cart.setThumbnail(rs.getString(4));
+                        cart.setContent(rs.getString(5));
+                        cart.setQuantity(c.getQuantity());
+                        cart.setPrices(rs.getDouble(3)*c.getQuantity());
+                        products.add(cart);
+                    }
+                }
+            }
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+        
+        return products;
+    }
+    
+    public double getTotalCartPrice(ArrayList<Cart> cartList){
+        double sum=0;
+        
+        try {
+            if(cartList.size()>0){
+                for(Cart c: cartList){
+                    String query = "SELECT price FROM products where id = ?";
+                    conn = new DBConnection().getDBConnection();
+                    ps = conn.prepareStatement(query);
+                    ps.setInt(1, c.getId());
+                    
+                    rs = ps.executeQuery();
+                    while(rs.next()){
+                        sum += rs.getDouble("price")*c.getQuantity();
+                    }
+                }
+            }
+        } catch (Exception e) {
+        }
+        
+        return sum;
+    }
     
 //    test
     public static void main(String[] args) {

@@ -659,12 +659,14 @@ img{
 }
 .product-cart__content{
     margin: auto 0;
+    width: 400px;
 }
 .product-cart__content-title{
     font-size: 1.8rem;
     font-weight:700;
     color:#111;
     margin-bottom: 10px;
+    
 }
 .product-cart__content-decrip{
     font-size:1.4rem;
@@ -676,20 +678,56 @@ img{
     font-size:2.2rem;
     font-weight:800;
     color: var(--primary-color);
-    margin: auto 100px;
+    margin: auto 80px;
 }
 .product-cart__price{
     font-size: 1.8rem;
     font-weight:700;
     color: rgba(17, 17, 17, 0.9);
-    margin: auto 0;
+    margin: auto;
     margin-right: 55px;
+    width: 85px;
+}
+.product-cart__price-old{
+    font-size: 1.8rem;
+    font-weight:700;
+    color: rgba(17, 17, 17, 0.9);
+    margin: auto auto;
+    width: 85px;
 }
 .product-cart__delete{
     margin: auto 0;
     font-size: 2rem;
     color: rgba(17, 17, 17, 0.4);
     cursor: pointer;
+}
+
+
+.product-cart__btn_left,
+.product-cart__btn_right{
+    margin: auto 20px;
+    padding: 8px 15px;
+    font-size: 1.6rem;
+    color: rgba(17, 17, 17, 0.9);
+    border-radius: 10px;
+    color: #fff;
+    background-color: hsla(148, 100%, 21%, 0.7);
+}
+
+.product-cart__btn_left:hover,
+.product-cart__btn_right:hover{
+    background-color: var(--primary-color);
+}
+.product-cart__quantity{
+    height: 20px;
+    margin: auto 0;
+    font-size: 1.4rem;
+    width: 50px;
+    text-align: center;
+    border: none;
+    outline: none;
+    color: rgba(17, 17, 17, 0.9);
+    font-weight: 700;
 }
 
 .product-pay{
